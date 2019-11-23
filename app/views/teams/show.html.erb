@@ -1,0 +1,8 @@
+<h3>2017-2018 <%= @team.name.upcase %> Roster | <%= link_to "NBA Teams", teams_path %> </h3>
+<hr>
+<ol>
+<% @players.each do |player| %>
+    <li><%= link_to player.name, player_path(player) %>
+    <%= button_to "Delete Player", { action: "delete", id: player.id}, method: :delete %></li>
+<% end %>
+</ol>

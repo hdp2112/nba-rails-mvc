@@ -1,0 +1,7 @@
+<h3>2017-2018 NBA Players | <%= link_to "Teams", teams_path %></h3>
+<hr>
+<ul>
+<% @players.sort.each do |player| %>
+    <li><%= link_to player.name, player_path(player) %></li>
+<% end %>
+</ul>

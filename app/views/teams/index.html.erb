@@ -1,0 +1,7 @@
+<h3>2017-2018 NBA Teams | <%= link_to "Players", players_path %></h3>
+<hr>
+<ul>
+<% @teams.each do |team| %>
+    <li><%= link_to team.name.upcase, team_path(team) %></li>
+<% end %>
+</ul>

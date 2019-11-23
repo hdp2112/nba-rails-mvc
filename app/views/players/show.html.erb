@@ -1,0 +1,35 @@
+<h3><%= @player.name %> | 2017-2018 Season</h3> 
+<%= button_to "Edit Player", edit_player_path(@player) %>
+<%= button_to "Delete Player", { action: "delete", id: @player.id}, method: :delete  %>
+<hr>
+Player Efficiency Rating: <b><%= @player.player_efficiency_rating %></b><br>
+Games Played: <b><%= @player.games_played %></b><br>
+Mins per Game: <b><%= @player.minutes_per_game %></b><br>
+<br>
+Points per Game: <b><%= @player.points_per_game %></b><br>
+Rebounds per Game: <b><%= @player.rebounds_per_game %></b><br>
+Assists per Game: <b><%= @player.assists_per_game %></b><br>
+Blocks per Game: <b><%= @player.blocks_per_game %></b><br>
+Steals per Game: <b><%= @player.steals_per_game %></b><br>
+Turnovers per Game: <b><%= @player.turnovers_per_game %></b><br>
+<br>
+FGA per Game: <b><%= @player.field_goals_attempted_per_game %></b><br>   
+FGM per Game: <b><%= @player.field_goals_made_per_game %></b><br>
+Field Goal %: <b><%=@player.field_goal_percentage%>%</b><br>
+<br>
+TPA per Game: <b><%= @player.three_point_attempted_per_game %></b><br>
+TPM per Game: <b><%= @player.three_point_made_per_game %></b><br>
+Three Point %: <b><%=@player.three_point_percentage%>%</b><br>
+<br>
+Offensive Rebs per Game: <b><%= @player.offensive_rebounds_per_game %></b><br>
+Defensive Rebs per Game: <b><%= @player.defensive_rebounds_per_game %></b><br>
+Free Throw %: <b><%= @player.free_throw_percentage %>%</b><br>
+</ul>
+<br>
+<%= link_to "Back to Players", players_path %>
+<br>
+<% if @player.team_id %>
+    <%= link_to "Back to Team", team_path(@player.team_id) %>
+<% else %>
+" "
+<% end %>
