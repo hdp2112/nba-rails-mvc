@@ -3,5 +3,5 @@
 <ul>
 <% @teams.each do |team| %>
     <li><%= link_to team.name.upcase, team_path(team) %></li>
-<% end %>
+<% end.sort %>
 </ul>

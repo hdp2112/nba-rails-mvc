@@ -1,6 +1,6 @@
-<h3><%= @player.name %> | 2017-2018 Season</h3> 
-<%= button_to "Edit Player", edit_player_path(@player) %>
-<%= button_to "Delete Player", { action: "delete", id: @player.id}, method: :delete  %>
+<h3><%= @player.name %> | <%= link_to @player.team.name.upcase, team_path(@player.team_id) %> | 2017-2018 Season</h3> 
+<%= button_to "Edit #{@player.name.split.first}", edit_player_path(@player) %>
+<%= button_to "Delete #{@player.name.split.first}", { action: "delete", id: @player.id}, method: :delete  %>
 <hr>
 Player Efficiency Rating: <b><%= @player.player_efficiency_rating %></b><br>
 Games Played: <b><%= @player.games_played %></b><br>
@@ -27,9 +27,3 @@ Free Throw %: <b><%= @player.free_throw_percentage %>%</b><br>
 </ul>
 <br>
 <%= link_to "Back to Players", players_path %>
-<br>
-<% if @player.team_id %>
-    <%= link_to "Back to Team", team_path(@player.team_id) %>
-<% else %>
-" "
-<% end %>

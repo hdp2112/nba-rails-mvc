@@ -1,5 +1,18 @@
 <h3>2017-2018 NBA Players | <%= link_to "Teams", teams_path %></h3>
+<%= button_to "Create Player", new_player_path %>
 <hr>
+<h3>Top Stats:</h3>
+Points per Game: <%= @players.highest_per_game("points") %>
+<br>
+Rebounds per Game: <%= @players.highest_per_game("rebounds") %>
+<br>
+Assists per Game: <%= @players.highest_per_game("assists") %>
+<br>
+Blocks per Game: <%= @players.highest_per_game("blocks") %>
+<br>
+Steals per Game: <%= @players.highest_per_game("steals") %>
+<hr>
+<h3>Players:</h3>
 <ul>
 <% @players.sort.each do |player| %>
     <li><%= link_to player.name, player_path(player) %></li>
